@@ -133,4 +133,12 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+
+    // 字段名称翻译
+    'attributes' => [
+        'name' => '名称',
+        'email' => '邮箱',
+        'password' => '密码',
+        'content' => '内容',
+    ],
 ];
