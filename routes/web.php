@@ -47,7 +47,9 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 
 // 用户资源路由
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
-
+// 话题资源路由
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
-
+// 分类资源路由
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+// 上传图片路由
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
