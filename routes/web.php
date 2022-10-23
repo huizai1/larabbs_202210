@@ -56,4 +56,5 @@ Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload
 // 显示话题页面路由
 Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 
-Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+// 话题回复路由
+Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
