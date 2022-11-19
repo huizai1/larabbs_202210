@@ -140,5 +140,6 @@ return [
         'email' => '邮箱',
         'password' => '密码',
         'content' => '内容',
+        'phone' => '电话',
     ],
 ];
