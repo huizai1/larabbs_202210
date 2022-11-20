@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\VerificationCodesController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\CaptchasController;
+use App\Http\Controllers\Api\AuthorizationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +55,9 @@ Route::prefix('v1')
                 // 图片验证码
                 Route::post('captchas', [CaptchasController::class, 'store'])
                     ->name('captchas.store');
+                // 第三方登录
+                Route::post('socials/{social_type}/authorizations', [AuthorizationsController::class, 'socialStore'])
+                    ->where('social_type', 'wechat')
+                    ->name('socials.authorizations.store');
             });
     });

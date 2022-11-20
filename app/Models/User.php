@@ -49,6 +49,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'introduction',
         'avatar',
+        'weixin_openid',
+        'weixin_unionid'
     ];
 
     /**
