@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\CaptchasController;
 use App\Http\Controllers\Api\AuthorizationsController;
 use App\Http\Controllers\Api\ImagesController;
+use App\Http\Controllers\Api\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ Route::prefix('v1')
         Route::middleware('throttle:' . config('api.rate_limits.access'))
             ->group(function () {
                 // 游客可以访问的接口
+
+                // 分类列表
+                Route::apiResource('categories', CategoriesController::class)
+                    ->only('index');
 
                 // 图片验证码
                 Route::post('captchas', [CaptchasController::class, 'store'])
