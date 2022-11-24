@@ -65,6 +65,9 @@ Route::prefix('v1')
                 // 分类列表
                 Route::apiResource('categories', CategoriesController::class)
                     ->only('index');
+                // 某个用户发布的话题
+                Route::get('users/{user}/topics', [TopicsController::class, 'userIndex'])
+                    ->name('users.topics.index');
 
                 // 图片验证码
                 Route::post('captchas', [CaptchasController::class, 'store'])
