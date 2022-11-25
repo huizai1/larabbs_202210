@@ -63,6 +63,15 @@ Route::prefix('v1')
                     'index', 'show'
                 ]);
 
+                // 话题回复列表
+                Route::apiResource('topics.replies', RepliesController::class)->only([
+                    'index',
+                ]);
+
+                // 某个用户的回复列表
+                Route::get('users/{user}/replies', [RepliesController::class, 'userIndex'])
+                    ->name('users.replies.index');
+
                 // 分类列表
                 Route::apiResource('categories', CategoriesController::class)
                     ->only('index');
