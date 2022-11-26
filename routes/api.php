@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\TopicsController;
 use App\Http\Controllers\Api\RepliesController;
 use App\Http\Controllers\Api\NotificationsController;
 use App\Http\Controllers\Api\PermissionsController;
+use App\Http\Controllers\Api\LinksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,11 @@ Route::prefix('v1')
                 // 某个用户的回复列表
                 Route::get('users/{user}/replies', [RepliesController::class, 'userIndex'])
                     ->name('users.replies.index');
+
+                // 资源推荐
+                Route::apiResource('links', LinksController::class)->only([
+                    'index'
+                ]);
 
                 // 分类列表
                 Route::apiResource('categories', CategoriesController::class)
