@@ -43,6 +43,7 @@ Route::prefix('v2')->name('api.v2.')->group(function() {
 }); */
 
 Route::prefix('v1')
+    ->middleware('change-locale')
     ->name('api.v1.')
     ->group(function () {
 
