@@ -80,6 +80,10 @@ Route::prefix('v1')
                     'index'
                 ]);
 
+                // 活跃用户
+                Route::get('actived/users', [UsersController::class, 'activedIndex'])
+                    ->name('actived.users.index');
+
                 // 分类列表
                 Route::apiResource('categories', CategoriesController::class)
                     ->only('index');
